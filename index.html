@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TSA Randomizer App</title>
+    <style>
+        div {
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        #tap {
+            display: flex;
+            font-size: 10vw;
+        }
+        #arrow {
+            display: none;
+            font-size: 40vw;
+            margin-top: -5vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="tap">Tap</div>
+    <div id="arrow"></div>
+    <script>
+        document.getElementById("tap").addEventListener("click", leftOrRight);
+        function leftOrRight() {
+            var arrowElement = document.getElementById("arrow");
+            var tapElement = document.getElementById("tap");
+
+            if (Math.random() < .5) {
+                arrowElement.innerHTML = "&larr;";
+            } else {
+                arrowElement.innerHTML = "&rarr;";
+            }
+
+            arrowElement.style.display = "flex";
+            tapElement.style.display = "none";
+
+            setTimeout(function() {
+                arrowElement.style.display = "none";
+                tapElement.style.display = "flex";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
